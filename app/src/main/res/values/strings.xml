@@ -1,0 +1,4 @@
+<resources>
+	<string name="app_name">ListViewTuning</string>
+	<string name="title_activity_default_list_view">DefaultListViewActivity</string>
+</resources>
