@@ -9,6 +9,13 @@ import android.widget.Button;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
+import jp.naver.lineplay.listviewtuning.Activity.ListView1Activity;
+import jp.naver.lineplay.listviewtuning.Activity.ListView2Activity;
+import jp.naver.lineplay.listviewtuning.Activity.ListView3Activity;
+import jp.naver.lineplay.listviewtuning.Activity.ListView4Activity;
+import jp.naver.lineplay.listviewtuning.Activity.ListView5Activity;
+import jp.naver.lineplay.listviewtuning.Activity.ListView6Activity;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     Button btn1;
@@ -25,7 +32,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(this).build();
         ImageLoader.getInstance().init(config);
-
 
         btn1 = (Button) findViewById(R.id.btn1);
         btn2 = (Button) findViewById(R.id.btn2);
@@ -47,27 +53,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Intent i = null;
         switch (v.getId()) {
             case R.id.btn1:
-                i = new Intent(this, DefaultListView1Activity.class);
+                i = new Intent(this, ListView1Activity.class);
                 startActivity(i);
                 break;
             case R.id.btn2:
-                i = new Intent(this, DefaultListView2Activity.class);
+                i = new Intent(this, ListView2Activity.class);
                 startActivity(i);
                 break;
             case R.id.btn3:
-                i = new Intent(this, DefaultListView3Activity.class);
+                i = new Intent(this, ListView3Activity.class);
                 startActivity(i);
                 break;
             case R.id.btn4:
-                i = new Intent(this, DefaultListView4Activity.class);
+                i = new Intent(this, ListView4Activity.class);
                 startActivity(i);
                 break;
             case R.id.btn5:
-                i = new Intent(this, DefaultListView5Activity.class);
+                i = new Intent(this, ListView5Activity.class);
                 startActivity(i);
                 break;
             case R.id.btn6:
-                i = new Intent(this, DefaultListView6Activity.class);
+                i = new Intent(this, ListView6Activity.class);
                 startActivity(i);
                 break;
         }

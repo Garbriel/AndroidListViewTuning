@@ -19,32 +19,32 @@
 			</intent-filter>
 		</activity>
 		<activity
-			android:name=".DefaultListView1Activity"
+			android:name=".Activity.ListView1Activity"
 			android:label="@string/title_activity_default_list_view"
 			android:theme="@style/AppTheme.NoActionBar">
 		</activity>
 		<activity
-			android:name=".DefaultListView2Activity"
+			android:name=".Activity.ListView2Activity"
 			android:label="@string/title_activity_default_list_view"
 			android:theme="@style/AppTheme.NoActionBar">
 		</activity>
 		<activity
-			android:name=".DefaultListView3Activity"
+			android:name=".Activity.ListView3Activity"
 			android:label="@string/title_activity_default_list_view"
 			android:theme="@style/AppTheme.NoActionBar">
 		</activity>
 		<activity
-			android:name=".DefaultListView4Activity"
+			android:name=".Activity.ListView4Activity"
 			android:label="@string/title_activity_default_list_view"
 			android:theme="@style/AppTheme.NoActionBar">
 		</activity>
 		<activity
-			android:name=".DefaultListView5Activity"
+			android:name=".Activity.ListView5Activity"
 			android:label="@string/title_activity_default_list_view"
 			android:theme="@style/AppTheme.NoActionBar">
 		</activity>
 		<activity
-			android:name=".DefaultListView6Activity"
+			android:name=".Activity.ListView6Activity"
 			android:label="@string/title_activity_default_list_view"
 			android:theme="@style/AppTheme.NoActionBar">
 		</activity>

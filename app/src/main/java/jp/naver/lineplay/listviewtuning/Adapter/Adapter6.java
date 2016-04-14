@@ -1,8 +1,6 @@
-package jp.naver.lineplay.listviewtuning;
+package jp.naver.lineplay.listviewtuning.Adapter;
 
 import android.content.Context;
-import android.graphics.BitmapFactory;
-import android.os.AsyncTask;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,17 +8,19 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.io.BufferedInputStream;
-import java.io.IOException;
-import java.net.URL;
-import java.net.URLConnection;
+import com.nostra13.universalimageloader.core.ImageLoader;
+
 import java.util.ArrayList;
 
-public class DefaultAdapter4 extends ArrayAdapter<Data> {
+import jp.naver.lineplay.listviewtuning.Data.Data;
+import jp.naver.lineplay.listviewtuning.R;
+
+public class Adapter6 extends ArrayAdapter<Data> {
     private static ArrayList<Data> items;
+    public boolean mIsScrolling = false;
     private Context context;
 
-    public DefaultAdapter4(Context context, int textViewResourceId, ArrayList<Data> items) {
+    public Adapter6(Context context, int textViewResourceId, ArrayList<Data> items) {
         super(context, textViewResourceId, items);
         this.context = context;
         this.items = items;
@@ -55,9 +55,11 @@ public class DefaultAdapter4 extends ArrayAdapter<Data> {
             holder.tv_Main.setText(custom_list_data.Main_Title);
             holder.tv_Sub.setText(custom_list_data.Sub_Title);
 
-            new DownloadImageTask(position, holder)
-                    .executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, null);
-
+            if (mIsScrolling == true) {
+                holder.iv.setImageResource(R.mipmap.ic_launcher);
+            } else {
+                ImageLoader.getInstance().displayImage(custom_list_data.url, holder.iv);
+            }
         }
 
         return convertView;
@@ -68,41 +70,6 @@ public class DefaultAdapter4 extends ArrayAdapter<Data> {
         public TextView tv_Main;
         public TextView tv_Sub;
         public ImageView iv;
-    }
-
-    private static class DownloadImageTask<Bitmap> extends AsyncTask {
-        private int mPosition;
-        private ViewHolder mHolder;
-
-        public DownloadImageTask(int position, ViewHolder holder) {
-            mPosition = position;
-            mHolder = holder;
-        }
-
-        @Override
-        protected void onPostExecute(Object o) {
-            super.onPostExecute(o);
-            if (mHolder.position == mPosition)
-                mHolder.iv.setImageBitmap((android.graphics.Bitmap) o);
-
-        }
-
-        @Override
-        protected Bitmap doInBackground(Object[] params) {
-            Bitmap bm = null;
-            try {
-                URL url = new URL(items.get(mPosition).url);
-                URLConnection conn = url.openConnection();
-                conn.connect();
-                BufferedInputStream bis = new BufferedInputStream(conn.getInputStream());
-                bm = (Bitmap) BitmapFactory.decodeStream(bis);
-                bis.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            return bm;
-        }
-
     }
 
 }

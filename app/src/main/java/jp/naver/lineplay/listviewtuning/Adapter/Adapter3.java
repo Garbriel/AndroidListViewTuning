@@ -1,4 +1,4 @@
-package jp.naver.lineplay.listviewtuning;
+package jp.naver.lineplay.listviewtuning.Adapter;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -16,11 +16,14 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
 
-public class DefaultAdapter3 extends ArrayAdapter<Data> {
+import jp.naver.lineplay.listviewtuning.Data.Data;
+import jp.naver.lineplay.listviewtuning.R;
+
+public class Adapter3 extends ArrayAdapter<Data> {
     private ArrayList<Data> items;
     private Context context;
 
-    public DefaultAdapter3(Context context, int textViewResourceId, ArrayList<Data> items) {
+    public Adapter3(Context context, int textViewResourceId, ArrayList<Data> items) {
         super(context, textViewResourceId, items);
         this.context = context;
         this.items = items;

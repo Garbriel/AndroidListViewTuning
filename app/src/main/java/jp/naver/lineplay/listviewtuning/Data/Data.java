@@ -1,4 +1,4 @@
-package jp.naver.lineplay.listviewtuning;
+package jp.naver.lineplay.listviewtuning.Data;
 
 public class Data {
     public String url;

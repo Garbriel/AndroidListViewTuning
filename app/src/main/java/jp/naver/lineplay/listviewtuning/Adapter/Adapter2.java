@@ -1,4 +1,4 @@
-package jp.naver.lineplay.listviewtuning;
+package jp.naver.lineplay.listviewtuning.Adapter;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -16,11 +16,14 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
 
-public class DefaultAdapter1 extends ArrayAdapter<Data> {
+import jp.naver.lineplay.listviewtuning.Data.Data;
+import jp.naver.lineplay.listviewtuning.R;
+
+public class Adapter2 extends ArrayAdapter<Data> {
     private ArrayList<Data> items;
     private Context context;
 
-    public DefaultAdapter1(Context context, int textViewResourceId, ArrayList<Data> items) {
+    public Adapter2(Context context, int textViewResourceId, ArrayList<Data> items) {
         super(context, textViewResourceId, items);
         this.context = context;
         this.items = items;
@@ -30,8 +33,10 @@ public class DefaultAdapter1 extends ArrayAdapter<Data> {
     public View getView(int position, View convertView, ViewGroup parent) {
         View v = convertView;
 
-        LayoutInflater vi = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        v = vi.inflate(R.layout.listview_row, null);
+        if (v == null) {
+            LayoutInflater vi = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            v = vi.inflate(R.layout.listview_row, null);
+        }
 
         final Data custom_list_data = items.get(position);
 
@@ -43,7 +48,6 @@ public class DefaultAdapter1 extends ArrayAdapter<Data> {
 
             tv_Main.setText(custom_list_data.Main_Title);
             tv_Sub.setText(custom_list_data.Sub_Title);
-//            iv.setImageResource(custom_list_data.Image_ID);
 
             try {
                 URL url = new URL(custom_list_data.url);
